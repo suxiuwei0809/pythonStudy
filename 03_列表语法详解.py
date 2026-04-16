@@ -518,3 +518,45 @@ for op_name, result in operations.items():
 
 
 print("\n=== Python 列表语法详解完成 ===")
+
+
+# 基本语法：lambda 参数: 表达式
+square = lambda x: x ** 2
+print(square(5))  # 25
+
+# 多个参数
+add = lambda x, y: x + y
+print(add(3, 4))  # 7
+
+# 与高阶函数结合
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x**2, numbers))
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print(f"平方数: {squared}")
+
+# 基本装饰器
+def my_decorator(func):
+    def wrapper():
+        print("函数执行前")
+        func()
+        print("函数执行后")
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print("Hello, World!")
+
+say_hello()
+
+# 带参数的装饰器
+def log_decorator(func):
+    def wrapper(*args, **kwargs):
+        print(f"调用函数：{func.__name__}")
+        result = func(*args, **kwargs)
+        print(f"返回值：{result}")
+        return result
+    return wrapper
+
+@log_decorator
+def add_numbers(a, b):
+    return a + b
