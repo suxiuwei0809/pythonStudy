@@ -557,7 +557,7 @@ print("\n=== 实用函数示例 ===")
 def validate_email(email):
     """验证邮箱格式"""
     import re
-    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}
+    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
     return bool(re.match(pattern, email))
 
 print(f"'user@example.com' 有效：{validate_email('user@example.com')}")
